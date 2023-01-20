@@ -30,7 +30,7 @@ class FuzzyController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.fuzzy.add');
     }
 
     /**
@@ -41,7 +41,10 @@ class FuzzyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $create  = Fuzzy::create($data);
+        return redirect()->route('fuzzy.getRules')
+            ->with('success', 'Rule created successfully.');
     }
 
     /**

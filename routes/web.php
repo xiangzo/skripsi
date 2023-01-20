@@ -29,5 +29,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/litopenaeus-vannamei/update/{_id}', [VannameiController::class, 'update'])->name('vannamei.update');
     Route::get('/fuzzy', [FuzzyController::class, 'index'])->name('fuzzy');
     Route::get('/fuzzy-rules', [FuzzyController::class, 'getRules'])->name('fuzzy.getRules');
+    Route::get('/fuzzy-rules/add', [FuzzyController::class, 'create'])->name('fuzzy.add');
+    Route::post('/fuzzy-rules/store', [FuzzyController::class, 'store'])->name('fuzzy.store');
 });
 

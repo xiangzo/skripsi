@@ -9,7 +9,7 @@
       <!-- Hoverable Table rows -->
       <div class="card">
         <h5 class="card-header">
-            <a type="button" class="btn btn-sm btn-primary" href="#">
+            <a type="button" class="btn btn-sm btn-primary" href="/fuzzy-rules/add">
                 <span class="tf-icons bx bx-plus"></span>&nbsp; Tambah Data
             </a>
         </h5>

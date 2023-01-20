@@ -61,7 +61,7 @@ class VannameiController extends Controller
     {
         //edit data
         $vannamei = Vannamei::find($id);
-        return view('admin.litopenaeus_vannamei_edit', compact('vannamei'));
+        return view('admin.vannamei.litopenaeus_vannamei_edit', compact('vannamei'));
     }
 
     /**
