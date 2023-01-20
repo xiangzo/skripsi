@@ -1,0 +1,23 @@
+[{
+  "_id": {
+    "$oid": "6395af80fb1a96522e8fffe9"
+  },
+  "address": "jemberrr",
+  "avatar": "storage/avatar/2022-12-11102524.png",
+  "email": "bungaelf@gmail.com",
+  "is_active": true,
+  "name": "bunga",
+  "password": "$2y$10$8yW1rJ4EMiC/fHsthSdmfuKSshKcYl96ukrpd62ivX9B2QkXEXNVa",
+  "phone_number": "83111693588",
+  "username": "bunga",
+  "updated_at": {
+    "$date": {
+      "$numberLong": "1671108690926"
+    }
+  },
+  "email_verified_at": {
+    "$date": {
+      "$numberLong": "1670754324207"
+    }
+  }
+}]
