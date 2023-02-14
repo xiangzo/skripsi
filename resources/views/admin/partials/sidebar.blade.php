@@ -111,7 +111,7 @@
         <span class="menu-header-text">Perhitungan</span>
       </li>
       <li class="menu-item">
-        <a href="#" class="menu-link">
+        <a href="/proses" class="menu-link">
           <i class="menu-icon tf-icons bx bx-dock-top"></i>
           <div data-i18n="Account Settings">Proses Data</div>
         </a>

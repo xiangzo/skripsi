@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FuzzyController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProsesController;
 use App\Http\Controllers\VannameiController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -31,5 +32,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/fuzzy-rules', [FuzzyController::class, 'getRules'])->name('fuzzy.getRules');
     Route::get('/fuzzy-rules/add', [FuzzyController::class, 'create'])->name('fuzzy.add');
     Route::post('/fuzzy-rules/store', [FuzzyController::class, 'store'])->name('fuzzy.store');
+    Route::get('/fuzzy-rules/edit/{_id}', [FuzzyController::class, 'edit'])->name('fuzzy.edit');
+    Route::put('/fuzzy-rules/{_id}', [FuzzyController::class, 'update'])->name('fuzzy.update');
+    Route::delete('/fuzzy-rules/{_id}', [FuzzyController::class, 'destroy'])->name('fuzzy.delete');
+    Route::get('/proses', [ProsesController::class, 'index'])->name('proses');
+    Route::get('/perhitungan-manual', [ProsesController::class, 'manual'])->name('proses.manual');
 });
-
