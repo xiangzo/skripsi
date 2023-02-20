@@ -31,8 +31,8 @@
               <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $item->ph }}</td>
-                <td>{{ $item->suhu }}</td>
-                <td>{{ $item->salinitas }}</td>
+                <td>{{ $item->temp }}</td>
+                <td>{{ $item->salinity }}</td>
                 <td>{{ $item->do }}</td>
                 <td>{{ $item->grade }}</td>
                 <td>

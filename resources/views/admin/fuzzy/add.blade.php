@@ -36,7 +36,7 @@
                     <label for="exampleFormControlSelect1" class="form-label">Suhu</label>
                     {{-- select form  --}}
                     <div class="mb-3">
-                        <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example" name="suhu">
+                        <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example" name="temp">
                           <option value="baik" selected>Baik</option>
                           <option value="sedang">Sedang</option>
                           <option value="buruk">Buruk</option>
@@ -48,7 +48,7 @@
                     <label for="exampleFormControlSelect1" class="form-label">Salinitas</label>
                     {{-- select form  --}}
                     <div class="mb-3">
-                        <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example" name="salinitas">
+                        <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example" name="salinity">
                           <option value="baik" selected>Baik</option>
                           <option value="sedang">Sedang</option>
                           <option value="buruk">Buruk</option>

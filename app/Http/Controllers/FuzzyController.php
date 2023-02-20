@@ -82,8 +82,8 @@ class FuzzyController extends Controller
         //update
         $rules = Rules::find($id);
             $rules->ph = $request->ph;
-            $rules->suhu = $request->suhu;
-            $rules->salinitas = $request->salinitas;
+            $rules->temp = $request->temp;
+            $rules->salinity = $request->salinity;
             $rules->do = $request->do;
             $rules->grade = $request->grade;
             $rules->save();

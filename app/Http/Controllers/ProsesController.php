@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Perhitungan;
 use App\Models\Proses;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class ProsesController extends Controller
      */
     public function index()
     {
-        return view('admin.proses.index');
+        $dataProses = Proses::all();
+        return view('admin.proses.index', compact('dataProses'));
     }
 
     /**
@@ -24,7 +26,7 @@ class ProsesController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.proses.add');
     }
 
     /**
@@ -35,7 +37,22 @@ class ProsesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //insert data to table proses
+        Proses::create([
+            'title' => $request->title,
+            'location' => $request->location,
+            'name' => $request->name,
+            'status' => "2",
+        ]);
+        // insert data to table perhitungan
+        Perhitungan::create([
+            'ph' => $request->ph,
+            'temp' => $request->temp,
+            'salinity' => $request->salinity,
+            'do' => $request->do,
+        ]);
+        return redirect()->route('proses')
+            ->with('success', 'Proses created successfully.');
     }
 
     /**
@@ -78,8 +95,13 @@ class ProsesController extends Controller
      * @param  \App\Models\Proses  $proses
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Proses $proses)
+    public function destroy($id)
     {
-        //
+        //delete
+        $proses = Proses::find($id);
+        $proses->delete();
+        return redirect()->route('proses')
+            ->with('success', 'Proses deleted successfully');
     }
+
 }

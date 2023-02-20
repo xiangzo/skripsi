@@ -19,8 +19,8 @@
                   Tambah Proses Data
                 </button>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="javascript:void(0);">Perhitungan Data Sensor</a></li>
-                  <li><a class="dropdown-item" href="javascript:void(0);">Perhitungan Manual</a></li>
+                  <li><a class="dropdown-item" href="/perhitungan">Perhitungan Data Sensor</a></li>
+                  <li><a class="dropdown-item" href="/proses/add">Perhitungan Manual</a></li>
                 </ul>
               </div>
         </h5>
@@ -37,25 +37,31 @@
               </tr>
             </thead>
             <tbody class="table-border-bottom-0">
-              {{-- @foreach ($dataRules as $item) --}}
+              @foreach ($dataProses as $item)
               <tr>
-                {{-- <td>{{ $loop->iteration }}</td>
-                <td>{{ $item->ph }}</td>
-                <td>{{ $item->suhu }}</td>
-                <td>{{ $item->salinitas }}</td>
-                <td>{{ $item->do }}</td>
-                <td>{{ $item->grade }}</td> --}}
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $item->title }}</td>
+                <td>{{ $item->location }}</td>
+                <td>{{ $item->name }}</td>
                 <td>
-                    {{-- <a class="btn btn-sm btn-secondary" href=""><i class="bx bx-edit-alt"></i></a> --}}
-                    {{-- delete action--}}
-                    {{-- <form action="/fuzzy-rules/{{ $item->_id }}" method="POST" class="d-inline">
+                    @if ($item->status == "1")
+                        <span class="badge rounded-pill bg-dark">Sistem IoT</span>
+                    @else
+                        <span class="badge rounded-pill bg-primary">Manual</span>
+                    @endif
+                </td>
+                <td>{{ $item->action }}</td>
+                <td>
+                    <a class="btn btn-sm btn-secondary" href=""><i class="bx bx-info-circle"></i></a>
+                    {{-- delete action --}}
+                    <form action="/proses/{{ $item->_id }}" method="POST" class="d-inline">
                         @csrf
                         @method('delete')
                         <button class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')"><i class="bx bx-trash"></i></button>
-                    </form> --}}
+                    </form>
                 </td>
               </tr>
-              {{-- @endforeach --}}
+              @endforeach
             </tbody>
           </table>
         </div>
