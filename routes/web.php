@@ -42,4 +42,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('/proses/{_id}', [ProsesController::class, 'destroy'])->name('proses.delete');
     Route::get('/perhitungan', [PerhitunganController::class, 'index'])->name('perhitungan');
     Route::post('/perhitungan/create', [PerhitunganController::class, 'create'])->name('perhitungan.create');
+    Route::get('/perhitungan/detail/{_id}', [PerhitunganController::class, 'detail'])->name('perhitungan.detail');
 });

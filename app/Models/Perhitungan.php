@@ -13,6 +13,7 @@ class Perhitungan extends Eloquent
     protected $connection = 'mongodb';
     protected $collection = 'perhitungans';
     protected $fillable = [
+        'proses_id',
         'ph',
         'temp',
         'salinity',

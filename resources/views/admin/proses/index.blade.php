@@ -52,7 +52,7 @@
                 </td>
                 <td>{{ $item->action }}</td>
                 <td>
-                    <a class="btn btn-sm btn-secondary" href=""><i class="bx bx-info-circle"></i></a>
+                    <a class="btn btn-sm btn-secondary" href="/perhitungan/detail/{{ $item->_id }}"><i class="bx bx-info-circle"></i></a>
                     {{-- delete action --}}
                     <form action="/proses/{{ $item->_id }}" method="POST" class="d-inline">
                         @csrf

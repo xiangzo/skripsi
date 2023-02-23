@@ -46,6 +46,8 @@ class ProsesController extends Controller
         ]);
         // insert data to table perhitungan
         Perhitungan::create([
+            //get last id proses
+            'proses_id' => Proses::latest()->first()->id,
             'ph' => $request->ph,
             'temp' => $request->temp,
             'salinity' => $request->salinity,
@@ -54,6 +56,8 @@ class ProsesController extends Controller
         return redirect()->route('proses')
             ->with('success', 'Proses created successfully.');
     }
+
+    //detail function
 
     /**
      * Display the specified resource.

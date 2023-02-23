@@ -24,6 +24,14 @@ class PerhitunganController extends Controller
             ->with('success', 'Perhitungan created successfully.');
     }
 
+    public function detail($id)
+    {
+        $detailPerhitungan = Proses::find($id);
+        return view('admin.perhitungan.detail', compact('detailPerhitungan'));
+    }
+
+
+
     public function store(Request $request)
     {
 
