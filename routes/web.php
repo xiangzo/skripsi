@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DataSensorController;
 use App\Http\Controllers\FuzzyController;
 use App\Http\Controllers\PerhitunganController;
 use App\Http\Controllers\ProfileController;
@@ -43,4 +44,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/perhitungan', [PerhitunganController::class, 'index'])->name('perhitungan');
     Route::post('/perhitungan/create', [PerhitunganController::class, 'create'])->name('perhitungan.create');
     Route::get('/perhitungan/detail/{_id}', [PerhitunganController::class, 'detail'])->name('perhitungan.detail');
+
+    Route::get('/get-data-sensor', [DataSensorController::class, 'getDataSensor'])->name('get-data-sensor');
+    Route::get('/get-one-last-data-sensor', [DataSensorController::class, 'getOneLastDataSensor'])->name('get-one-last-data-sensor');
 });
