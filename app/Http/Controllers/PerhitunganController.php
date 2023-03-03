@@ -30,8 +30,6 @@ class PerhitunganController extends Controller
         return view('admin.perhitungan.detail', compact('detailPerhitungan'));
     }
 
-
-
     public function store(Request $request)
     {
 
