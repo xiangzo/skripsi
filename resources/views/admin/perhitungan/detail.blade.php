@@ -181,6 +181,11 @@
 
         }
         
+        // fetch data sensor setiap 5 detik
+        setInterval(function() {
+            tampilkanGrafik();
+        }, 3000);
+
       
 
     </script>
