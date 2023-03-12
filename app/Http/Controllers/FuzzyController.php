@@ -30,6 +30,9 @@ class FuzzyController extends Controller
      */
     public function create()
     {
+        if (auth ()->user()->role != '1') {
+            return view('admin.fuzzy.index');
+        }
         return view('admin.fuzzy.add');
     }
 
@@ -66,6 +69,9 @@ class FuzzyController extends Controller
      */
     public function edit($id)
     {
+        if (auth ()->user()->role != '1') {
+            return view('admin.fuzzy.index');
+        }
         $rules = Rules::find($id);
         return view('admin.fuzzy.edit', compact('rules'));
     }

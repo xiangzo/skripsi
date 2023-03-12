@@ -9,9 +9,11 @@
       <!-- Hoverable Table rows -->
       <div class="card">
         <h5 class="card-header">
-            <a type="button" class="btn btn-sm btn-primary" href="/fuzzy-rules/add">
-                <span class="tf-icons bx bx-plus"></span>&nbsp; Tambah Data
-            </a>
+            @if(auth()->user()->role == '1')
+                <a type="button" class="btn btn-sm btn-primary" href="/fuzzy-rules/add">
+                    <span class="tf-icons bx bx-plus"></span>&nbsp; Tambah Data
+                </a>
+            @endif
         </h5>
         <div class="table-responsive text-nowrap">
           <table class="table table-hover">
@@ -23,7 +25,9 @@
                 <th>Salinitas</th>
                 <th>Do</th>
                 <th>Grade</th>
+                @if(auth()->user()->role == '1')
                 <th>Aksi</th>
+                @endif
               </tr>
             </thead>
             <tbody class="table-border-bottom-0">
@@ -35,6 +39,7 @@
                 <td>{{ $item->salinity }}</td>
                 <td>{{ $item->do }}</td>
                 <td>{{ $item->grade }}</td>
+                @if(auth()->user()->role == '1')
                 <td>
                     <a class="btn btn-sm btn-secondary" href="/fuzzy-rules/edit/{{ $item->_id }}"><i class="bx bx-edit-alt"></i></a>
                     {{-- delete action--}}
@@ -44,6 +49,7 @@
                         <button class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')"><i class="bx bx-trash"></i></button>
                     </form>
                 </td>
+                @endif
               </tr>
               @endforeach
             </tbody>

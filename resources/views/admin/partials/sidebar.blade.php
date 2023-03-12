@@ -96,13 +96,13 @@
       <li class="menu-item">
         <a href="/fuzzy" class="menu-link">
           <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
-          <div data-i18n="Authentications">Fuzzy Tsukamoto</div>
+          <div data-i18n="Authentications"><i>Fuzzy Tsukamoto</i></div>
         </a>
       </li>
       <li class="menu-item">
         <a href="/fuzzy-rules" class="menu-link">
           <i class="menu-icon tf-icons bx bx-book-open"></i>
-          <div data-i18n="Boxicons">Fuzzy Rules</div>
+          <div data-i18n="Boxicons"><i>Fuzzy Rules</i></div>
         </a>
       </li>
 
@@ -117,9 +117,9 @@
         </a>
       </li>
       <li class="menu-item">
-        <a href="#" class="menu-link">
+        <a href="/history" class="menu-link">
           <i class="menu-icon tf-icons bx bx-history"></i>
-          <div data-i18n="Account Settings">History</div>
+          <div data-i18n="Account Settings">Riwayat</div>
         </a>
       </li>
 

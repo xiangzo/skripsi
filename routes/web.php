@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+    Route::get('/home', [AdminController::class, 'index'])->name('home');
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
     Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
     Route::get('/litopenaeus-vannamei', [VannameiController::class, 'index'])->name('vannamei');
@@ -39,8 +39,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/proses', [ProsesController::class, 'index'])->name('proses');
     Route::get('/proses/add', [ProsesController::class, 'create'])->name('proses.create');
     Route::post('/proses/store', [ProsesController::class, 'store'])->name('proses.store');
+    Route::get('/proses/detail/{_id}', [ProsesController::class, 'detail'])->name('proses.detail');
     Route::delete('/proses/{_id}', [ProsesController::class, 'destroy'])->name('proses.delete');
     Route::get('/perhitungan', [PerhitunganController::class, 'index'])->name('perhitungan');
     Route::post('/perhitungan/create', [PerhitunganController::class, 'create'])->name('perhitungan.create');
     Route::get('/perhitungan/detail/{_id}', [PerhitunganController::class, 'detail'])->name('perhitungan.detail');
+    Route::get('/history', [PerhitunganController::class, 'history'])->name('history');
 });

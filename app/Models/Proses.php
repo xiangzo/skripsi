@@ -18,4 +18,10 @@ class Proses extends Eloquent
         'name',
         'status',
     ];
+
+    //relasi perhitungan
+    public function perhitungan()
+    {
+        return $this->hasMany(Perhitungan::class);
+    }
 }

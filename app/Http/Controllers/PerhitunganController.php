@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Perhitungan;
 use App\Models\Proses;
 use Illuminate\Http\Request;
 
@@ -28,6 +29,12 @@ class PerhitunganController extends Controller
     {
         $detailPerhitungan = Proses::find($id);
         return view('admin.perhitungan.detail', compact('detailPerhitungan'));
+    }
+
+    public function history()
+    {
+        $data = Perhitungan::with('proses')->with('perhitunganDetail')->get();
+        return view('admin.history.index', compact('data'));
     }
 
     public function store(Request $request)

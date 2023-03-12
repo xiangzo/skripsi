@@ -20,4 +20,20 @@ class Perhitungan extends Eloquent
         'do',
         'grade',
     ];
+
+    public function proses()
+    {
+        return $this->belongsTo(Proses::class, 'proses_id');
+    }
+
+    public function rulesGrade()
+    {
+        return $this->hasMany(RulesGrade::class, 'id_perhitungan');
+    }
+
+    public function perhitunganDetail()
+    {
+        return $this->hasMany(PerhitunganDetail::class, 'id_perhitungan');
+    }
+
 }

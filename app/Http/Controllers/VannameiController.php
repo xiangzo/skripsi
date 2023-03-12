@@ -60,6 +60,9 @@ class VannameiController extends Controller
     public function edit($id)
     {
         //edit data
+        if(auth()->user()->role != '1'){
+            return redirect()->route('home');
+        }
         $vannamei = Vannamei::find($id);
         return view('admin.vannamei.litopenaeus_vannamei_edit', compact('vannamei'));
     }

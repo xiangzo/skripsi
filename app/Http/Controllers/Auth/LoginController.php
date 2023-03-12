@@ -74,7 +74,7 @@ class LoginController extends Controller
         ], $messages);
     }
     if(Auth::attempt([$field => $login, 'password' => $request['password']])){
-        return redirect('/admin');
+        return redirect('/home');
     }else{
         // return redirect()->route('login')->with('error', 'Username / Email and Password are wrong.');
         dd('salah');

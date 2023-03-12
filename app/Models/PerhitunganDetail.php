@@ -6,22 +6,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 
-class Rules extends Eloquent
+class PerhitunganDetail extends Eloquent
 {
     use HasFactory;
-
     protected $connection = 'mongodb';
-    protected $collection = 'rules';
+    protected $collection = 'perhitungan_details';
     protected $fillable = [
-        'ph',
-        'temp',
-        'salinity',
-        'do',
-        'grade',
+        'id_perhitungan',
+        'defuzzy',
+        'status',
     ];
 
-    public function rulesGrade()
+    public function perhitungan()
     {
-        return $this->hasMany(RulesGrade::class, 'id_rules');
+        return $this->belongsTo(Perhitungan::class, 'id_perhitungan');
     }
 }

@@ -22,7 +22,9 @@
                 <p class="card-text">
                   {{ $vannamei->description }}
                 </p>
+                @if (auth()->user()->role == '1')
                 <a href="/litopenaeus-vannamei/edit/{{ $vannamei->_id }}" class="card-link">Edit Data</a>
+                @endif
               </div>
             </div>
           </div>

@@ -52,7 +52,11 @@
                 </td>
                 <td>{{ $item->action }}</td>
                 <td>
-                    <a class="btn btn-sm btn-secondary" href="/perhitungan/detail/{{ $item->_id }}"><i class="bx bx-info-circle"></i></a>
+                    @if ($item-> status == "1")
+                        <a class="btn btn-sm btn-secondary" href="/perhitungan/detail/{{ $item->_id }}"><i class="bx bx-info-circle"></i></a>
+                    @else
+                        <a class="btn btn-sm btn-secondary" href="/proses/detail/{{ $item->_id }}"><i class="bx bx-info-circle"></i></a>
+                    @endif
                     {{-- delete action --}}
                     <form action="/proses/{{ $item->_id }}" method="POST" class="d-inline">
                         @csrf
