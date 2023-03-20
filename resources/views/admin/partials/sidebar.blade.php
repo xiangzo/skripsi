@@ -68,39 +68,39 @@
 
     <ul class="menu-inner py-1">
       <!-- Dashboard -->
-      <li class="menu-item active">
-        <a href="/admin" class="menu-link">
+      <li class="menu-item {{ Request::is('home') ? 'active' : ''  }}">
+        <a href="/home" class="menu-link">
           <i class="menu-icon tf-icons bx bx-home-circle"></i>
-          <div data-i18n="Analytics">Dashboard</div>
+          <div data-i18n="Analytics">Beranda</div>
         </a>
       </li>
 
       <!-- Layouts -->
-      <li class="menu-item">
+      <li class="menu-item  {{ Request::is('profile') ? 'active' : ''  }}">
         <a href="/profile" class="menu-link">
           <i class="menu-icon tf-icons bx bx-user"></i>
-          <div data-i18n="Layouts">Profile Author</div>
+          <div data-i18n="Layouts">Profil Pengguna</div>
         </a>
       </li>
 
       <!-- Pengetahuan -->
-      <li class="menu-header small text-uppercase">
+      <li class="menu-header small text-uppercase" >
         <span class="menu-header-text">Pengetahuan</span>
       </li>
-      <li class="menu-item">
-        <a href="/litopenaeus-vannamei" class="menu-link">
+      <li class="menu-item {{ Request::is('litopenaeus-vannamei') ? 'active' : ''  }}">
+        <a href="/litopenaeus-vannamei" class="menu-link ">
           <i class="menu-icon tf-icons bx bx-cube"></i>
           <div data-i18n="Account Settings"><i>Litopenaeus vannamei</i></div>
         </a>
       </li>
-      <li class="menu-item">
-        <a href="/fuzzy" class="menu-link">
+      <li class="menu-item {{ Request::is('fuzzy') ? 'active' : ''  }}">
+        <a href="/fuzzy" class="menu-link ">
           <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
           <div data-i18n="Authentications"><i>Fuzzy Tsukamoto</i></div>
         </a>
       </li>
-      <li class="menu-item">
-        <a href="/fuzzy-rules" class="menu-link">
+      <li class="menu-item {{ Request::is('fuzzy-rules') ? 'active' : ''  }}">
+        <a href="/fuzzy-rules" class="menu-link ">
           <i class="menu-icon tf-icons bx bx-book-open"></i>
           <div data-i18n="Boxicons"><i>Fuzzy Rules</i></div>
         </a>
@@ -110,14 +110,14 @@
       <li class="menu-header small text-uppercase">
         <span class="menu-header-text">Perhitungan</span>
       </li>
-      <li class="menu-item">
-        <a href="/proses" class="menu-link">
+      <li class="menu-item {{ Request::is('proses') ? 'active' : ''  }}">
+        <a href="/proses" class="menu-link ">
           <i class="menu-icon tf-icons bx bx-dock-top"></i>
           <div data-i18n="Account Settings">Proses Data</div>
         </a>
       </li>
-      <li class="menu-item">
-        <a href="/history" class="menu-link">
+      <li class="menu-item {{ Request::is('history') ? 'active' : ''  }}">
+        <a href="/history" class="menu-link ">
           <i class="menu-icon tf-icons bx bx-history"></i>
           <div data-i18n="Account Settings">Riwayat</div>
         </a>

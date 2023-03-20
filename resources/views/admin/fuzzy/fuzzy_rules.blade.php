@@ -1,10 +1,13 @@
 @extends('admin.partials.master')
+@push('css-plugin')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+@endpush
 @section('content')
 <div class="content-wrapper">
     <!-- Content -->
 
     <div class="container-xxl flex-grow-1 container-p-y">
-      <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Fuzzy </span> Rules</h4>
+      <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Pengetahuan / </span>Fuzzy Rules</h4>
 
       <!-- Hoverable Table rows -->
       <div class="card">
@@ -43,11 +46,12 @@
                 <td>
                     <a class="btn btn-sm btn-secondary" href="/fuzzy-rules/edit/{{ $item->_id }}"><i class="bx bx-edit-alt"></i></a>
                     {{-- delete action--}}
-                    <form action="/fuzzy-rules/{{ $item->_id }}" method="POST" class="d-inline">
+                    {{-- <form action="#" method="POST" class="d-inline">
                         @csrf
                         @method('delete')
-                        <button class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')"><i class="bx bx-trash"></i></button>
-                    </form>
+                        <button class="btn btn-sm btn-danger delete" id="delete" data-id ="{{ $item->_id }}"><i class="bx bx-trash"></i></button>
+                    </form> --}}
+                    <a href="#" class="btn btn-sm btn-danger delete" id="delete" data-id ="{{ $item->_id }}"><i class="bx bx-trash"></i></a>
                 </td>
                 @endif
               </tr>
@@ -64,3 +68,64 @@
     <div class="content-backdrop fade"></div>
 </div>
 @endsection
+@push('js')
+{{-- <script>
+    @if(Session::has('success'))
+    toastr.options =
+    {
+        "closeButton" : true,
+        "progressBar" : true
+    }
+            toastr.success("{{ session('success') }}");
+    @endif
+
+    @if(Session::has('error'))
+    toastr.options =
+    {
+        "closeButton" : true,
+        "progressBar" : true
+    }
+            toastr.error("{{ session('error') }}");
+    @endif
+
+    @if(Session::has('info'))
+    toastr.options =
+    {
+        "closeButton" : true,
+        "progressBar" : true
+    }
+            toastr.info("{{ session('info') }}");
+    @endif
+
+    @if(Session::has('warning'))
+    toastr.options =
+    {
+        "closeButton" : true,
+        "progressBar" : true
+    }
+            toastr.warning("{{ session('warning') }}");
+    @endif
+</script> --}}
+<script>
+    $('.delete').click(function(){
+        var rules_id = $(this).attr('data-id');
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this imaginary file!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            })
+            .then((willDelete) => {
+            if (willDelete) {
+                window.location = "/fuzzy-rules/delete/"+rules_id+""
+                swal("Poof! Your imaginary file has been deleted!", {
+                icon: "success",
+                });
+            } else {
+                swal("Your imaginary file is safe!");
+            }
+        });
+    });
+</script>
+@endpush

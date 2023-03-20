@@ -4,7 +4,50 @@
         <!-- Content -->
         <div class="container-xxl flex-grow-1 container-p-y">
             <h4 class="fw-bold py-3 mb-4">
-                <span class="text-muted fw-light">Blank /</span> blank page
+                <span class="text-muted fw-light">Monitoring </span>Data
+                <button
+                    type="button"
+                    class="btn btn-dark"
+                    data-bs-toggle="modal"
+                    data-bs-target="#hitungModal"
+                >
+                    Hitung
+                </button>
+                <!-- Modal -->
+                <div class="modal fade" id="hitungModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <form action="{{ route('perhitungan.store') }}" method="post">
+                            {{ csrf_field() }}
+                            @method('POST')
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel1">Hitung Kualitas Air</h5>
+                          <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                          ></button>
+                        </div>
+                        <div class="modal-body">
+
+                          <div class="row">
+                            <div class="col mb-3">
+                              <label for="nameBasic" class="form-label">Masukkan Do</label>
+                              <input type="text" name="do" id="nameBasic" class="form-control" placeholder="Contoh: 4.5 " />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                            Batal
+                          </button>
+                          <button type="submit" class="btn btn-primary">Simpan</button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                </div>
             </h4>
 
             <div class="row">
@@ -75,7 +118,7 @@
                 </div>
             </div>
 
-            <div class="card">
+            {{-- <div class="card">
                 <div class="table-responsive text-nowrap">
                   <table class="table table-hover">
                     <thead>
@@ -103,7 +146,7 @@
                     </tbody>
                   </table>
                 </div>
-            </div>
+            </div> --}}
 
         </div>
         <!-- / Content -->

@@ -5,7 +5,7 @@
 
     <div class="container-xxl flex-grow-1 container-p-y">
       <h4 class="fw-bold py-3 mb-4">
-        <span class="text-muted fw-light">Perhitungan </span> Kualitas Air
+        <span class="text-muted fw-light">Perhitungan / Proses Data / </span>Hasil Kualitas Air
     </h4>
 
     <div class="row">
@@ -13,7 +13,7 @@
             <div class="card">
               <div class="card-body">
                 <span class="fw-semibold d-block mb-1">PH</span>
-                <h4 class="card-title mb-5">{{ $data[0]->ph }}</h4>
+                <h4 class="card-title mb-5">{{ $data->ph }}</h4>
               </div>
             </div>
         </div>
@@ -21,7 +21,7 @@
             <div class="card">
               <div class="card-body">
                 <span class="fw-semibold d-block mb-1">Suhu</span>
-                <h4 class="card-title mb-5">{{ $data[0]->temp }}</h4>
+                <h4 class="card-title mb-5">{{ $data->temp }}</h4>
               </div>
             </div>
         </div>
@@ -29,7 +29,7 @@
             <div class="card">
               <div class="card-body">
                 <span class="fw-semibold d-block mb-1">Salinitas</span>
-                <h4 class="card-title mb-5">{{ $data[0]->salinity }}</h4>
+                <h4 class="card-title mb-5">{{ $data->salinity }}</h4>
               </div>
             </div>
           </div>
@@ -37,7 +37,7 @@
             <div class="card">
               <div class="card-body">
                 <span class="fw-semibold d-block mb-1">DO</span>
-                <h4 class="card-title mb-5">{{ $data[0]->do }}</h4>
+                <h4 class="card-title mb-5">{{ $data->do }}</h4>
               </div>
             </div>
           </div>
@@ -53,9 +53,10 @@
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h3 class="card-title">{{ $data[0]->proses->name }}</h3>
-                    <h2><p class="card-text">Kualitas air : {{ $data[0]->perhitunganDetail[0]->status }}</p></h2>
-                    <h2>{{ $data[0]->perhitunganDetail[0]->defuzzy }}%</h2>
+                  <h3 class="card-title">{{ $data->proses->name }}</h3>
+                  {{-- {{ dd($data->perhitunganDetail[0])   }} --}}
+                    <h2><p class="card-text">Kualitas air : {{ $data->perhitunganDetail[0]->status }}</p></h2>
+                    <h2>{{ $data->perhitunganDetail[0]->defuzzy }}%</h2>
                   </p></h5>
                 </div>
               </div>
@@ -83,7 +84,7 @@
                 </tr>
               </thead>
               <tbody class="table-border-bottom-0">
-                @foreach ($data[0]->rulesGrade as $value)
+                @foreach ($data->rulesGrade as $value)
                 <tr>
                   <td>{{ $loop->iteration }}</td>
                   <td>{{ $value->rules->ph }}</td>

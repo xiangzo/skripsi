@@ -7,7 +7,7 @@
     <!-- Content -->
 
     <div class="container-xxl flex-grow-1 container-p-y">
-      <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Riwayat </span> Perhitungan</h4>
+      <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Perhitungan / </span>Riwayat Perhitungan</h4>
 
       <!-- Hoverable Table rows -->
       <div class="card">
@@ -35,8 +35,8 @@
                 <td>{{ $item->temp }}</td>
                 <td>{{ $item->salinity }}</td>
                 <td>{{ $item->do }}</td>
-                <td>{{ $item->perhitunganDetail[0]->defuzzy }}%</td>
-                <td>{{ $item->perhitunganDetail[0]->status }}</td>
+                <td>{{ $item->perhitunganDetail[0]->defuzzy ?? '' }}%</td>
+                <td>{{ $item->perhitunganDetail[0]->status ?? '' }}</td>
                 <td>
                 </td>
               </tr>

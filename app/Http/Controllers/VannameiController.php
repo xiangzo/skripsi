@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Vannamei;
 use Illuminate\Http\Request;
 
+
 class VannameiController extends Controller
 {
     /**
@@ -94,7 +95,7 @@ class VannameiController extends Controller
         $data->subtitle = $request->subtitle;
         $data->description = $request->description;
         $data->save();
-        return redirect()->route('vannamei');
+        return redirect()->route('vannamei')->with('success', 'Data berhasil diupdate');
     }
 
     /**

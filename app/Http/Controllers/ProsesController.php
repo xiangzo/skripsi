@@ -507,7 +507,7 @@ class ProsesController extends Controller
             //update rules grade
             RulesGrade::where('_id', $gr->_id)->update([
                 'inf' => $hasilA,
-                'updated_at' => Carbon::now()
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ]);
         }
         // echo json_encode($getRules);
@@ -545,7 +545,6 @@ class ProsesController extends Controller
         ];
         PerhitunganDetail::create($data);
         // echo json_encode($data);
-        //return view
         return redirect()->route('proses.detail', $proses);
     }
 
@@ -557,8 +556,10 @@ class ProsesController extends Controller
         ->with('proses')
         ->with('rulesGrade.rules')
         ->with('perhitunganDetail')
-        // ->with('perhitunganDetail.perhitungan.rulesGrade')
         ->get();
+
+        $data = $data->last();
+
         return view('admin.proses.detail', compact('data'));
     }
 

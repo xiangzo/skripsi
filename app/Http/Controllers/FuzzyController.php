@@ -47,7 +47,7 @@ class FuzzyController extends Controller
         $data = $request->all();
         $create  = Rules::create($data);
         return redirect()->route('fuzzy.getRules')
-            ->with('success', 'Rule created successfully.');
+            ->with('success', 'Data Berhasil Ditambah');
     }
 
     /**
@@ -94,7 +94,7 @@ class FuzzyController extends Controller
             $rules->grade = $request->grade;
             $rules->save();
         return redirect()->route('fuzzy.getRules')
-            ->with('success', 'Rule updated successfully');
+            ->with('success', 'Data berhasil diupdate');
     }
 
     /**
@@ -109,6 +109,6 @@ class FuzzyController extends Controller
         $rules = Rules::find($id);
         $rules->delete();
         return redirect()->route('fuzzy.getRules')
-            ->with('success', 'Rule deleted successfully');
+            ->with('success', 'Data berhasil dihapus');
     }
 }

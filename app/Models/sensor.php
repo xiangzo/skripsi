@@ -12,7 +12,8 @@ class sensor extends Eloquent
     protected $collection = 'sensors';
 
     protected $fillable = [
-        'suhu', 
+        'proses_id',
+        'suhu',
         'ph',
         'salinitas',
         'kalmanSuhu',
