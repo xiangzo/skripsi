@@ -2,22 +2,47 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Proses;
 use App\Models\sensor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DataSensorController extends Controller
 {
 
 
 
-    public function getDataSensor(){
-        $data = sensor::groupBy('proses_id')->orderBy('tanggal', 'desc')->take(10)->get()->reverse()->values();
-        dd($data);
+    public function getDataSensor(Request $request){
+
+        $id_proses_from_url = $request->get('id');
+        $data = sensor::where('proses_id', $id_proses_from_url)->orderBy('tanggal', 'desc')->get()->reverse()->values();
+        // $data = sensor::orderBy('tanggal', 'desc')->take(10)->get()->reverse()->values();
+        
         return response()->json($data);
     }
 
-    public function getOneLastDataSensor(){
-        $data = sensor::orderBy('tanggal', 'desc')->latest()->first();
+    public function getDataSensorAll(){
+        $data = sensor::orderBy('tanggal', 'desc')->get()->reverse()->values();
+        
+        return response()->json($data);
+    }
+
+    public function getOneLastDataSensor(Request $request){
+
+        $proses_id_from_url = $request->get('id');
+
+        $data = sensor::where('proses_id', $proses_id_from_url)->orderBy('tanggal', 'desc')->latest()->first();
+
+        if ($data <= 0){
+            // return response error untuk ajax
+            return response()->json(['error' => 'Data tidak ditemukan'], 400);
+
+        } else {
+            // return response success untuk ajax
+            return response()->json($data);
+        }
+
+        // $data = sensor::orderBy('tanggal', 'desc')->latest()->first();
         return response()->json($data);
     }
 

@@ -48,5 +48,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/perhitungan/detail/{_id}', [PerhitunganController::class, 'detail'])->name('perhitungan.detail');
     Route::get('/history', [PerhitunganController::class, 'history'])->name('history');
     Route::get('/get-data-sensor', [DataSensorController::class, 'getDataSensor'])->name('get-data-sensor');
+    Route::get('/get-data-sensor-all', [DataSensorController::class, 'getDataSensorAll'])->name('get-data-sensor-all');
     Route::get('/get-one-last-data-sensor', [DataSensorController::class, 'getOneLastDataSensor'])->name('get-one-last-data-sensor');
 });
