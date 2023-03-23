@@ -108,7 +108,9 @@ class FuzzyController extends Controller
         //delete
         $rules = Rules::find($id);
         $rules->delete();
-        return redirect()->route('fuzzy.getRules')
-            ->with('success', 'Data berhasil dihapus');
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Data berhasil dihapus'
+        ]);
     }
 }

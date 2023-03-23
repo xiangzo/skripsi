@@ -45,13 +45,8 @@
                 @if(auth()->user()->role == '1')
                 <td>
                     <a class="btn btn-sm btn-secondary" href="/fuzzy-rules/edit/{{ $item->_id }}"><i class="bx bx-edit-alt"></i></a>
-                    {{-- delete action--}}
-                    {{-- <form action="#" method="POST" class="d-inline">
-                        @csrf
-                        @method('delete')
-                        <button class="btn btn-sm btn-danger delete" id="delete" data-id ="{{ $item->_id }}"><i class="bx bx-trash"></i></button>
-                    </form> --}}
-                    <a href="#" class="btn btn-sm btn-danger delete" id="delete" data-id ="{{ $item->_id }}"><i class="bx bx-trash"></i></a>
+                    <meta name="csrf-token" content="{{ csrf_token() }}">
+                    <a href="#" class="btn btn-sm btn-danger delete" data-id ="{{ $item->_id }}"><i class="bx bx-trash"></i></a>
                 </td>
                 @endif
               </tr>
@@ -107,25 +102,37 @@
     @endif
 </script> --}}
 <script>
-    $('.delete').click(function(){
-        var rules_id = $(this).attr('data-id');
+    $(".delete").click(function(){
+    var id = $(this).data("id");
+    var token = $("meta[name='csrf-token']").attr("content");
         swal({
-            title: "Are you sure?",
-            text: "Once deleted, you will not be able to recover this imaginary file!",
+            title: "Apakah anda yakin?",
+            text: "Jika dihapus, anda tidak akan bisa mengembalikan data ini!",
             icon: "warning",
             buttons: true,
             dangerMode: true,
-            })
-            .then((willDelete) => {
+            }).then((willDelete) => {
             if (willDelete) {
-                window.location = "/fuzzy-rules/delete/"+rules_id+""
-                swal("Poof! Your imaginary file has been deleted!", {
-                icon: "success",
+                $.ajax(
+                {
+                    url: "/fuzzy-rules/delete/"+id,
+                    type: 'DELETE',
+                    data: {
+                    "id": id,
+                    "_token": token,
+                    },
+                    success: function (data){
+                        swal("Data Berhasil Dihapus!", {
+                        icon: "success",
+                        });
+                        window.location = "/fuzzy-rules"
+                    }
                 });
             } else {
-                swal("Your imaginary file is safe!");
+                swal("Data Tidak Jadi Dihapus!");
             }
-        });
+        }
+    );
     });
 </script>
 @endpush
