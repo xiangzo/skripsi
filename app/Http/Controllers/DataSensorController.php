@@ -11,7 +11,8 @@ class DataSensorController extends Controller
 
 
     public function getDataSensor(){
-        $data = sensor::orderBy('tanggal', 'desc')->take(10)->get()->reverse()->values();
+        $data = sensor::groupBy('proses_id')->orderBy('tanggal', 'desc')->take(10)->get()->reverse()->values();
+        dd($data);
         return response()->json($data);
     }
 
@@ -19,7 +20,7 @@ class DataSensorController extends Controller
         $data = sensor::orderBy('tanggal', 'desc')->latest()->first();
         return response()->json($data);
     }
-     
+
     /**
      * Display a listing of the resource.
      *
