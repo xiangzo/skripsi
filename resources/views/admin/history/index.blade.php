@@ -30,6 +30,7 @@
             </thead>
             <tbody class="table-border-bottom-0">
               @foreach ($data as $item)
+              @if($item->perhitungan->count() != 0)
               <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $item->name }}</td>
@@ -43,6 +44,7 @@
                     <a class="btn btn-sm btn-secondary" href="/proses/detail/{{ $item->_id }}"><i class="bx bx-info-circle"></i></a>
                 </td>
               </tr>
+              @endif
               @endforeach
             </tbody>
           </table>
