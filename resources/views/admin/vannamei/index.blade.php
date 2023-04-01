@@ -25,15 +25,15 @@
                 <p class="card-text">
                   {{ $vannamei->description }}
                 </p>
-                {{-- @if (auth()->user()->role == '1')
+                @if (auth()->user()->role == '1')
                 <a class="btn btn-primary" href="/litopenaeus-vannamei/edit/{{ $vannamei->_id }}" class="card-link">Edit Data</a>
-                @endif --}}
+                @endif
               </div>
             </div>
         </div>
       </div>
 
-      <div class="row mb-5">
+      {{-- <div class="row mb-5">
 
         <div class="col-md-6 col-lg-9">
             <div class="card mb-4">
@@ -54,7 +54,7 @@
               <img class="card-img-top" src="{{ $vannamei->vannamei_image }}" alt="Card image cap" />
             </div>
           </div>
-      </div>
+      </div> --}}
 
     </div>
     <!-- / Content -->

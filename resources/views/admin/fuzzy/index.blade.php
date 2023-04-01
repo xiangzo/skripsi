@@ -98,6 +98,21 @@
         </div>
     </div>
 
+    <div class="col-md-6 col-lg-12 order-1 mb-4">
+        <div class="card h-100">
+          <div class="card-header">
+              <h4 class="card-title">Fungsi Keanggotaan Kualitas Air</h4>
+          </div>
+          <div class="card-body px-0">
+            <div class="tab-content p-0">
+              <div class="tab-pane fade show active" id="" role="tabpanel">
+                <div id="kual"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
       </div>
 
     </div>
@@ -304,6 +319,53 @@
         chart.draw(data, options);
     }
     google.charts.setOnLoadCallback(dosChart);
+
+    function kualChart() {
+        // Define the chart to be drawn.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string');
+        data.addColumn('number', 'B');
+        data.addColumn('number', 'D');
+        data.addColumn('number', 'C');
+        data.addColumn('number', 'A');
+        data.addRows([
+            ['25', 0, 1, 0, 0],
+            ['50', 0, 0, 1, 0],
+            ['75', 1, 0, 0, 0],
+            ['100', 0, 0, 0, 1],
+            // ['3.2', 0, 0, 1, 0],
+            // ['3.5', 1, 0, 0, 0],
+            // ['4', 1, 0, 0, 0],
+            // ['4.5', 0, 0, 0, 1],
+            // ['6.5', 0, 0, 0, 1],
+            // ['7', 1, 0, 0, 0],
+            // ['7.5', 1, 0, 0, 0],
+            // ['8', 0, 0, 1, 0],
+            // ['8.5', 0, 0, 1, 0],
+            // ['9', 0, 0.5, 0, 0],
+            // ['9.5', 0, 1, 0, 0],
+            // ['', 0, 1, 0, 0]
+        ]);
+
+        // Set chart options
+        var options = {
+
+            hAxis: {
+                title: 'Kualitas  Air'
+            },
+            vAxis: {
+                title: 'Nilai Keanggotaan'
+            },
+            'width': 1000,
+            'height': 200,
+            pointsVisible: true
+        };
+
+        // Instantiate and draw the chart.
+        var chart = new google.visualization.LineChart(document.getElementById('kual'));
+        chart.draw(data, options);
+    }
+    google.charts.setOnLoadCallback(kualChart);
 
 </script>
 @endpush

@@ -117,7 +117,8 @@ class ProsesController extends Controller
             if($ph >= 12.5 || $ph <= 3){
                 $phD = 1;
             }else if($ph > 3 && $ph < 5){
-                $phD = ($ph - 4.5) / (5 - 4.5);
+                $phD = ($ph - 3) / (5 - 3);
+                // dd($phD);
             }else if($ph > 11.5 && $ph < 12.5){
                 $phD = (12.5 - $ph) / (12.5 - 11.5);
             }else if($ph >= 5 && $ph <= 11.5){
@@ -178,9 +179,10 @@ class ProsesController extends Controller
             if($temp >= 52 || $temp <= 7){
                 $tempD = 1;
             }else if($temp > 7 && $temp < 18){
-                $tempD = ($temp - 7) / (18 - 7);
+                $tempD = (18 - $temp) / (18 - 7);
             }else if($temp > 44 && $temp < 52){
-                $tempD = (52 - $temp) / (52 - 44);
+                $tempD = ($temp - 44) / (52 - 44);
+                // dd($tempD);
             }else if($temp >= 18 && $temp <= 44){
                 $tempD = 0;
             }
@@ -304,6 +306,27 @@ class ProsesController extends Controller
                 $doD = 0;
             }
         }
+
+        // return response()->json(
+        //     [
+        //         'phA' => $phA ?? 0,
+        //         'phB' => $phB ?? 0,
+        //         'phC' => $phC ?? 0,
+        //         'phD' => $phD ?? 0,
+        //         'tempA' => $tempA ?? 0,
+        //         'tempB' => $tempB ?? 0,
+        //         'tempC' => $tempC ?? 0,
+        //         'tempD' => $tempD ?? 0,
+        //         'saltA' => $saltA ?? 0,
+        //         'saltB' => $saltB ?? 0,
+        //         'saltC' => $saltC ?? 0,
+        //         'saltD' => $saltD ?? 0,
+        //         'doA' => $doA ?? 0,
+        //         'doB' => $doB ?? 0,
+        //         'doC' => $doC ?? 0,
+        //         'doD' => $doD ?? 0,
+        //     ]
+        // );
 
         //FUNGSI KEANGGOTAAN END
         //set value keanggotaan
@@ -472,6 +495,7 @@ class ProsesController extends Controller
                                 'nilai_min' => $min,
                             ];
                             // echo json_encode($dataRules);
+                            // dd($dataRules);
                             RulesGrade::create($dataRules);
                         }
                     }

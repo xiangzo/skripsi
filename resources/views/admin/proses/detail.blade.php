@@ -12,7 +12,7 @@
         <div class="col-lg-3 col-md-12 col-4 mb-4">
             <div class="card">
               <div class="card-body">
-                <span class="fw-semibold d-block mb-1">PH</span>
+                <span class="fw-semibold d-block mb-1"><h5>PH</h5></span>
                 <h4 class="card-title mb-5">{{ $data->ph }}</h4>
               </div>
             </div>
@@ -20,7 +20,7 @@
         <div class="col-lg-3 col-md-12 col-4 mb-4">
             <div class="card">
               <div class="card-body">
-                <span class="fw-semibold d-block mb-1">Suhu</span>
+                <span class="fw-semibold d-block mb-1"><h5>Suhu</h5></span>
                 <h4 class="card-title mb-5">{{ $data->temp }}</h4>
               </div>
             </div>
@@ -28,7 +28,7 @@
         <div class="col-lg-3 col-md-12 col-4 mb-4">
             <div class="card">
               <div class="card-body">
-                <span class="fw-semibold d-block mb-1">Salinitas</span>
+                <span class="fw-semibold d-block mb-1"><h5>Salinitas</h5></span>
                 <h4 class="card-title mb-5">{{ $data->salinity }}</h4>
               </div>
             </div>
@@ -36,7 +36,7 @@
           <div class="col-lg-3 col-md-12 col-4 mb-4">
             <div class="card">
               <div class="card-body">
-                <span class="fw-semibold d-block mb-1">DO</span>
+                <span class="fw-semibold d-block mb-1"><h5>DO</h5></span>
                 <h4 class="card-title mb-5">{{ $data->do }}</h4>
               </div>
             </div>

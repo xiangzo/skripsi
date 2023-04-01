@@ -1,7 +1,7 @@
 @extends('admin.partials.master')
-@push('css-plugin')
+{{-- @push('css-plugin')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css">
-@endpush
+@endpush --}}
 @section('content')
 <div class="content-wrapper">
     <!-- Content -->
@@ -11,6 +11,8 @@
 
       <!-- Hoverable Table rows -->
       <div class="card">
+        <h6 class="card-header">
+        </h6>
         <div class="table-responsive text-nowrap">
           <table class="table table-hover" id="table">
             <thead>
@@ -30,13 +32,13 @@
               @foreach ($data as $item)
               <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{ $item->proses->name }}</td>
-                <td>{{ $item->ph }}</td>
-                <td>{{ $item->temp }}</td>
-                <td>{{ $item->salinity }}</td>
-                <td>{{ $item->do }}</td>
-                <td>{{ $item->perhitunganDetail[0]->defuzzy ?? '' }}%</td>
-                <td>{{ $item->perhitunganDetail[0]->status ?? '' }}</td>
+                <td>{{ $item->name }}</td>
+                <td>{{ $item->perhitungan[0]->ph  ?? 0}}</td>
+                <td>{{ $item->perhitungan[0]->temp ?? 0}}</td>
+                <td>{{ $item->perhitungan[0]->salinity ?? 0}}</td>
+                <td>{{ $item->perhitungan[0]->do ?? 0}}</td>
+                <td>{{ $item->perhitungan[0]->perhitunganDetail[0]->defuzzy ?? '' }}%</td>
+                <td>{{ $item->perhitungan[0]->perhitunganDetail[0]->status ?? '' }}</td>
                 <td>
                 </td>
               </tr>
@@ -53,11 +55,11 @@
     <div class="content-backdrop fade"></div>
 </div>
 @endsection
-@push('js')
+{{-- @push('js')
     <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
     <script>
         $(document).ready( function () {
             $('.table').DataTable();
         } );
     </script>
-@endpush
+@endpush --}}
