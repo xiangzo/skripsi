@@ -40,6 +40,7 @@
                 <td>{{ $item->perhitungan[0]->perhitunganDetail[0]->defuzzy ?? '' }}%</td>
                 <td>{{ $item->perhitungan[0]->perhitunganDetail[0]->status ?? '' }}</td>
                 <td>
+                    <a class="btn btn-sm btn-secondary" href="/proses/detail/{{ $item->_id }}"><i class="bx bx-info-circle"></i></a>
                 </td>
               </tr>
               @endforeach

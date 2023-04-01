@@ -41,7 +41,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/proses/add', [ProsesController::class, 'create'])->name('proses.create');
     Route::post('/proses/store', [ProsesController::class, 'store'])->name('proses.store');
     Route::get('/proses/detail/{_id}', [ProsesController::class, 'detail'])->name('proses.detail');
-    Route::delete('/proses/{_id}', [ProsesController::class, 'destroy'])->name('proses.delete');
+    Route::delete('/proses/delete/{_id}', [ProsesController::class, 'destroy'])->name('proses.delete');
     Route::get('/perhitungan', [PerhitunganController::class, 'index'])->name('perhitungan');
     Route::post('/perhitungan/create', [PerhitunganController::class, 'create'])->name('perhitungan.create');
     Route::post('/perhitungan/store', [PerhitunganController::class, 'store'])->name('perhitungan.store');

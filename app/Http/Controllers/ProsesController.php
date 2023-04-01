@@ -632,8 +632,9 @@ class ProsesController extends Controller
         //delete
         $proses = Proses::find($id);
         $proses->delete();
-        return redirect()->route('proses')
-            ->with('success', 'Proses deleted successfully');
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Data berhasil dihapus'
+        ]);
     }
-
 }

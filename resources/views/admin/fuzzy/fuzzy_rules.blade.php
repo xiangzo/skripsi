@@ -13,7 +13,7 @@
       <div class="card">
         <h5 class="card-header">
             @if(auth()->user()->role == '1')
-                <a type="button" class="btn btn-sm btn-primary" href="/fuzzy-rules/add">
+                <a type="button" class="btn btn-primary" href="/fuzzy-rules/add">
                     <span class="tf-icons bx bx-plus"></span>&nbsp; Tambah Data
                 </a>
             @endif

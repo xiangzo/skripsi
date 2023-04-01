@@ -273,15 +273,17 @@
     const totalRevenueChart = new ApexCharts(totalRevenueChartEl, totalRevenueChartOptions);
     totalRevenueChart.render();
   }
+  //ambil data dari id defuzzy
+    var defuzzy = document.getElementById("defuzzy").value ?? 0;
 
   // Growth Chart - Radial Bar Chart
   // --------------------------------------------------------------------
   const growthChartEl = document.querySelector('#growthChart'),
     growthChartOptions = {
-      series: [78],
-      labels: ['Growth'],
+      series: [defuzzy],
+      labels: [' '],
       chart: {
-        height: 240,
+        height: 260,
         type: 'radialBar'
       },
       plotOptions: {
@@ -306,9 +308,9 @@
               fontFamily: 'Public Sans'
             },
             value: {
-              offsetY: -25,
+              offsetY: -10,
               color: headingColor,
-              fontSize: '22px',
+              fontSize: '32px',
               fontWeight: '500',
               fontFamily: 'Public Sans'
             }

@@ -16,11 +16,12 @@
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
+                <span class="tf-icons bx bx-plus"></span> &nbsp;
                   Tambah Proses Data
                 </button>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="/perhitungan">Perhitungan Data Sensor</a></li>
-                  <li><a class="dropdown-item" href="/proses/add">Perhitungan Manual</a></li>
+                  <li><a class="dropdown-item" href="/proses/add">Input Data Manual</a></li>
                 </ul>
               </div>
         </h5>
@@ -58,11 +59,8 @@
                         <a class="btn btn-sm btn-secondary" href="/proses/detail/{{ $item->_id }}"><i class="bx bx-info-circle"></i></a>
                     @endif
                     {{-- delete action --}}
-                    <form action="/proses/{{ $item->_id }}" method="POST" class="d-inline">
-                        @csrf
-                        @method('delete')
-                        <button class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')"><i class="bx bx-trash"></i></button>
-                    </form>
+                    <meta name="csrf-token" content="{{ csrf_token() }}">
+                    <a href="#" class="btn btn-sm btn-danger delete" data-id ="{{ $item->_id }}"><i class="bx bx-trash"></i></a>
                 </td>
               </tr>
               @endforeach
@@ -78,3 +76,39 @@
     <div class="content-backdrop fade"></div>
 </div>
 @endsection
+@push('js')
+<script>
+    $(".delete").click(function(){
+    var id = $(this).data("id");
+    var token = $("meta[name='csrf-token']").attr("content");
+        swal({
+            title: "Apakah anda yakin?",
+            text: "Jika dihapus, anda tidak akan bisa mengembalikan data ini!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            }).then((willDelete) => {
+            if (willDelete) {
+                $.ajax(
+                {
+                    url: "/proses/delete/"+id,
+                    type: 'DELETE',
+                    data: {
+                    "id": id,
+                    "_token": token,
+                    },
+                    success: function (data){
+                        swal("Data Berhasil Dihapus!", {
+                        icon: "success",
+                        });
+                        window.location = "/proses"
+                    }
+                });
+            } else {
+                swal("Data Tidak Jadi Dihapus!");
+            }
+        }
+    );
+    });
+</script>
+@endpush

@@ -5,8 +5,8 @@
         <div class="container-xxl flex-grow-1 container-p-y">
             <h4 class="fw-bold py-3 mb-4">
                 <span class="text-muted fw-light">Monitoring </span>Data
-                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#hitungModal">
-                    Hitung
+                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#hitungModal" style="float: right">
+                    Hitung Kualitas Air
                 </button>
                 <!-- Modal -->
                 <div class="modal fade" id="hitungModal" tabindex="-1" aria-hidden="true">
@@ -43,37 +43,77 @@
         </h4>
 
         <div class="row">
-            <div class="col-lg-3 col-md-12 col-4 mb-4">
+            <div class="col-3 mb-4">
                 <div class="card">
-                    <div class="card-body">
-                        <span class="fw-semibold d-block mb-1">Diambil Tanggal</span>
-                        <h4 class="card-title mb-3" id="last-time"></h4>
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between flex-sm-row flex-column gap-3">
+                      <div class="d-flex flex-sm-column flex-row align-items-start justify-content-between">
+                        <div class="card-title">
+                          <h5 class="text-nowrap mb-2">Diambil Tanggal</h5>
+                        </div>
+                        <div class="mt-sm-auto">
+                            {{-- <h3 class="card-title mb-5">{{ $data->ph }}</h3> --}}
+                            <h4 class="card-title mb-5" id="last-time"></h4>
 
+                        </div>
+                      </div>
+                      <img src="{{ asset('/assets/img/icons/unicons/date.png') }}" alt="" height="50">
                     </div>
+                  </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-12 col-4 mb-4">
+            <div class="col-3 mb-4">
                 <div class="card">
-                    <div class="card-body">
-                        <span class="fw-semibold d-block mb-1">PH</span>
-                        <h4 class="card-title mb-5" id="last-ph"></h4>
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between flex-sm-row flex-column gap-3">
+                      <div class="d-flex flex-sm-column flex-row align-items-start justify-content-between">
+                        <div class="card-title">
+                          <h5 class="text-nowrap mb-2">PH</h5>
+                        </div>
+                        <div class="mt-sm-auto">
+                            {{-- <h3 class="card-title mb-5">{{ $data->ph }}</h3> --}}
+                            <h4 class="card-title mb-5" id="last-ph"></h4>
+                        </div>
+                      </div>
+                      <img src="{{ asset('/assets/img/icons/unicons/ph.png') }}" alt="" height="50">
                     </div>
+                  </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-12 col-4 mb-4">
+            <div class="col-3 mb-4">
                 <div class="card">
-                    <div class="card-body">
-                        <span class="fw-semibold d-block mb-1">Suhu</span>
-                        <h4 class="card-title mb-5" id="last-suhu"></h4>
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between flex-sm-row flex-column gap-3">
+                      <div class="d-flex flex-sm-column flex-row align-items-start justify-content-between">
+                        <div class="card-title">
+                          <h5 class="text-nowrap mb-2">Suhu</h5>
+                        </div>
+                        <div class="mt-sm-auto">
+                            {{-- <h3 class="card-title mb-5">{{ $data->temp }}&deg;C</h3> --}}
+                            <h4 class="card-title mb-5" id="last-suhu">&deg;C</h4>
+                        </div>
+                      </div>
+                      <img src="{{ asset('/assets/img/icons/unicons/temperature.png') }}" alt="" height="50">
                     </div>
+                  </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-12 col-4 mb-4">
+            <div class="col-3 mb-4">
                 <div class="card">
-                    <div class="card-body">
-                        <span class="fw-semibold d-block mb-1">Salinitas</span>
-                        <h4 class="card-title mb-5" id="last-salinitas"></h4>
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between flex-sm-row flex-column gap-3">
+                      <div class="d-flex flex-sm-column flex-row align-items-start justify-content-between">
+                        <div class="card-title">
+                          <h5 class="text-nowrap mb-2">Salinitas</h5>
+                        </div>
+                        <div class="mt-sm-auto">
+                            {{-- <h3 class="card-title mb-5">{{ $data->temp }}&deg;C</h3> --}}
+                            <h4 class="card-title mb-5" id="last-suhu"> ppt</h4>
+                        </div>
+                      </div>
+                      <img src="{{ asset('/assets/img/icons/unicons/drip.png') }}" alt="" height="50">
                     </div>
+                  </div>
                 </div>
             </div>
         </div>
@@ -110,34 +150,34 @@
         </div>
 
         {{-- <div class="card">
-                <div class="table-responsive text-nowrap">
-                  <table class="table table-hover">
-                    <thead>
-                      <tr>
-                        <th>No</th>
-                        <th>Tanggal</th>
-                        <th>PH</th>
-                        <th>Suhu</th>
-                        <th>Salinitas</th>
-                        <th>Do</th>
-                      </tr>
-                    </thead>
-                    <tbody class="table-border-bottom-0">
-                      @foreach ($dataRules as $item)
-                      <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $item->created_date }}</td>
-                        <td>{{ $item->ph }}</td>
-                        <td>{{ $item->temp }}</td>
-                        <td>{{ $item->salinity }}</td>
-                        <td>{{ $item->do }}</td>
-                        <td>{{ $item->grade }}</td>
-                      </tr>
-                      @endforeach
-                    </tbody>
-                  </table>
-                </div>
-            </div> --}}
+            <div class="table-responsive text-nowrap">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>No</th>
+                      <th>Tanggal</th>
+                      <th>PH</th>
+                      <th>Suhu</th>
+                      <th>Salinitas</th>
+                      <th>Do</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-border-bottom-0">
+                    @foreach ($dataRules as $item)
+                    <tr>
+                      <td>{{ $loop->iteration }}</td>
+                      <td>{{ $item->created_date }}</td>
+                      <td>{{ $item->ph }}</td>
+                      <td>{{ $item->temp }}</td>
+                      <td>{{ $item->salinity }}</td>
+                      <td>{{ $item->do }}</td>
+                      <td>{{ $item->grade }}</td>
+                    </tr>
+                    @endforeach
+                  </tbody>
+                </table>
+            </div>
+        </div> --}}
 
     </div>
     <!-- / Content -->
@@ -158,7 +198,7 @@
         //buatkan fungsi ajax untuk mengambil data dari database
         function tampilkanGrafik() {
 
-           
+
             var url = window.location.href;
             var id = url.substring(url.lastIndexOf('/') + 1);
             // console.log(id);
@@ -261,7 +301,7 @@
     </script>
 
     <script>
-        
+
         var url = window.location.href;
         var id = url.substring(url.lastIndexOf('/') + 1);
         // console.log(id);

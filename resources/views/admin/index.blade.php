@@ -112,7 +112,7 @@
                               <div class="d-flex flex-sm-column flex-row align-items-start justify-content-between">
                                 <div class="card-title">
                                   <h5 class="text-nowrap mb-2">Riwayat Perhitungan</h5>
-                                  <span class="badge bg-label-warning rounded-pill">Year 2023</span>
+                                  <span class="badge bg-label-info rounded-pill">Year 2023</span>
                                 </div>
                                 <div class="mt-sm-auto">
                                     <a type="button" class="btn rounded-pill btn-outline-primary" href="/history">
@@ -120,9 +120,7 @@
                                     </a>
                                 </div>
                               </div>
-                              {{-- <div id="profileReportChart"></div> --}}
-                              {{-- <i class="fa-solid fa-clock-rotate-left" style="color: #2a8ac6;"></i> --}}
-                              <img src="../assets/img/icons/unicons/history.png" alt="" height="70">
+                              <img src="{{ asset('assets/img/icons/unicons/history.png') }}" alt="" height="70">
                             </div>
                           </div>
                         </div>
