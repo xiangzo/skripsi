@@ -52,9 +52,7 @@
                           <h5 class="text-nowrap mb-2">Diambil Tanggal</h5>
                         </div>
                         <div class="mt-sm-auto">
-                            {{-- <h3 class="card-title mb-5">{{ $data->ph }}</h3> --}}
                             <h4 class="card-title mb-5" id="last-time"></h4>
-
                         </div>
                       </div>
                       <img src="{{ asset('/assets/img/icons/unicons/date.png') }}" alt="" height="50">
@@ -108,7 +106,7 @@
                         </div>
                         <div class="mt-sm-auto">
                             {{-- <h3 class="card-title mb-5">{{ $data->temp }}&deg;C</h3> --}}
-                            <h4 class="card-title mb-5" id="last-suhu"> ppt</h4>
+                            <h4 class="card-title mb-5" id="last-salinitas"> ppt</h4>
                         </div>
                       </div>
                       <img src="{{ asset('/assets/img/icons/unicons/drip.png') }}" alt="" height="50">
@@ -314,9 +312,20 @@
             },
             dataType: "json",
             success: function(dataone) {
-                // console.log("ini jika succes",dataone);
+                console.log("ini jika succes",dataone);
                 //tamplikan data ke h4
-                $('#last-time').append(dataone.tanggal);
+                var date = new Date(dataone.tanggal);
+                //ubah format tanggal d F Y H:i:s
+                var options = {
+                    year: "numeric",
+                    month: "numeric",
+                    day: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                };
+                date = date.toLocaleDateString("id-ID", options);
+
+                $('#last-time').append(date);
                 $('#last-ph').html(dataone.ph);
                 $('#last-suhu').html(dataone.suhu);
                 $('#last-salinitas').html(dataone.salinitas);

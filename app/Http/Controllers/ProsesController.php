@@ -20,7 +20,8 @@ class ProsesController extends Controller
      */
     public function index()
     {
-        $dataProses = Proses::all();
+        // order by desc
+        $dataProses = Proses::orderBy('created_at', 'desc')->get();
         return view('admin.proses.index', compact('dataProses'));
     }
 
@@ -519,13 +520,13 @@ class ProsesController extends Controller
                 $gradeA = 75 + ($min * (100 - 75));
                 $hasilA = $gradeA * $min;
             } else if ($grade == "B") {
-                $gradeB = 50 + ($min * (75 - 50));
+                $gradeB = (((50 + ($min * (75 - 50)))+(100 - ($min * (100 - 75))))/2);
                 $hasilA = $gradeB * $min;
             } else if ($grade == "C") {
-                $gradeC = 25 + ($min * (50 - 25));
+                $gradeC = (((25 + ($min * (50 - 25)))+(75 - ($min * (75 - 50))))/2);
                 $hasilA = $gradeC * $min;
             } else if ($grade == "D") {
-                $gradeD = 0 + ($min * (25 - 0));
+                $gradeD = 25 + ($min * (50 - 25));
                 $hasilA = $gradeD * $min;
             }
             //update rules grade

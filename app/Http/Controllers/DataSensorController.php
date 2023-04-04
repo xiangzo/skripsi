@@ -15,7 +15,7 @@ class DataSensorController extends Controller
     public function getDataSensor(Request $request){
 
         $id_proses_from_url = $request->get('id');
-        $data = sensor::where('proses_id', $id_proses_from_url)->orderBy('tanggal', 'desc')->get()->reverse()->values();
+        $data = sensor::where('proses_id', $id_proses_from_url)->orderBy('tanggal', 'desc')->take(10)->get()->reverse()->values();
         // $data = sensor::orderBy('tanggal', 'desc')->take(10)->get()->reverse()->values();
 
         return response()->json($data);
@@ -33,7 +33,7 @@ class DataSensorController extends Controller
 
         $data = sensor::where('proses_id', $proses_id_from_url)->orderBy('tanggal', 'desc')->latest()->first();
 
-        if ($data <= 0){
+        if ($data->count() == 0){
             // return response error untuk ajax
             return response()->json(['error' => 'Data tidak ditemukan'], 400);
 

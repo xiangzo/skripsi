@@ -54,7 +54,6 @@
                       name="_id"
                       value="{{ $users->_id }}"
                       placeholder="Masukkan Nama Lengkap"
-                      autofocus
                     />
                   </div>
                   <div class="mb-3 col-md-12">
@@ -66,7 +65,6 @@
                       name="name"
                       value="{{ $users->name }}"
                       placeholder="Masukkan Nama Lengkap"
-                      autofocus
                     />
                   </div>
                   <div class="mb-3 col-md-12">
@@ -78,7 +76,6 @@
                       name="email"
                       value="{{ $users->email }}"
                       placeholder="Masukan Email"
-                      autofocus
                     />
                   </div>
                   <div class="mb-3 col-md-12">

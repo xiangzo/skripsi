@@ -542,7 +542,11 @@ class PerhitunganController extends Controller
 
     public function history()
     {
+        //order by desc
+        // $data = Proses::with('perhitungan')->with('perhitungan.perhitunganDetail')
+        // ->get();
         $data = Proses::with('perhitungan')->with('perhitungan.perhitunganDetail')
+        ->orderBy('created_at', 'desc')
         ->get();
         // return response()->json($data);
         return view('admin.history.index', compact('data'));

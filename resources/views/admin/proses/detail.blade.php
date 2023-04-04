@@ -91,7 +91,7 @@
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5><span class="badge bg-label-warning rounded-pill">{{ $data->proses->created_at->format('d F Y') }}</span></h5>
+                  <h5><span class="badge bg-label-warning rounded-pill">{{ $data->perhitunganDetail[0]->created_at->format('d F Y') }}</span></h5>
                   <h3 class="card-title">{{ $data->proses->name }}</h3>
                     <h2><p class="card-text ">Kualitas air : {{ $data->perhitunganDetail[0]->status }}</p></h2>
                     <br><br>

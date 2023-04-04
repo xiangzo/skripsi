@@ -6,7 +6,7 @@
         <script>
           document.write(new Date().getFullYear());
         </script>
-        , by bunga
+        , by xxx
       </div>
     </div>
 </footer>

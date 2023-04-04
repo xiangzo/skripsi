@@ -18,6 +18,7 @@
             <thead>
               <tr>
                 <th>No</th>
+                <td>Tanggal</td>
                 <th>Nama Kolam</th>
                 <th>PH</th>
                 <th>Suhu</th>
@@ -33,6 +34,7 @@
               @if($item->perhitungan->count() != 0)
               <tr>
                 <td>{{ $loop->iteration }}</td>
+                <td>{{ date('d F Y', strtotime($item->created_at)) }}</td>
                 <td>{{ $item->name }}</td>
                 <td>{{ $item->perhitungan[0]->ph  ?? 0}}</td>
                 <td>{{ $item->perhitungan[0]->temp ?? 0}}</td>
