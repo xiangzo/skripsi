@@ -108,7 +108,8 @@ class PerhitunganController extends Controller
             if($ph >= 12.5 || $ph <= 3){
                 $phD = 1;
             }else if($ph > 3 && $ph < 5){
-                $phD = ($ph - 4.5) / (5 - 4.5);
+                $phD = ($ph - 3) / (5 - 3);
+                // dd($phD);
             }else if($ph > 11.5 && $ph < 12.5){
                 $phD = (12.5 - $ph) / (12.5 - 11.5);
             }else if($ph >= 5 && $ph <= 11.5){
@@ -169,9 +170,10 @@ class PerhitunganController extends Controller
             if($temp >= 52 || $temp <= 7){
                 $tempD = 1;
             }else if($temp > 7 && $temp < 18){
-                $tempD = ($temp - 7) / (18 - 7);
+                $tempD = (18 - $temp) / (18 - 7);
             }else if($temp > 44 && $temp < 52){
-                $tempD = (52 - $temp) / (52 - 44);
+                $tempD = ($temp - 44) / (52 - 44);
+                // dd($tempD);
             }else if($temp >= 18 && $temp <= 44){
                 $tempD = 0;
             }
@@ -486,13 +488,13 @@ class PerhitunganController extends Controller
                 $gradeA = 75 + ($min * (100 - 75));
                 $hasilA = $gradeA * $min;
             } else if ($grade == "B") {
-                $gradeB = 50 + ($min * (75 - 50));
+                $gradeB = (((50 + ($min * (75 - 50)))+(100 - ($min * (100 - 75))))/2);
                 $hasilA = $gradeB * $min;
             } else if ($grade == "C") {
-                $gradeC = 25 + ($min * (50 - 25));
+                $gradeC = (((25 + ($min * (50 - 25)))+(75 - ($min * (75 - 50))))/2);
                 $hasilA = $gradeC * $min;
             } else if ($grade == "D") {
-                $gradeD = 0 + ($min * (25 - 0));
+                $gradeD = 25 + ($min * (50 - 25));
                 $hasilA = $gradeD * $min;
             }
             //update rules grade

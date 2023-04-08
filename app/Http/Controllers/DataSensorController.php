@@ -16,7 +16,6 @@ class DataSensorController extends Controller
 
         $id_proses_from_url = $request->get('id');
         $data = sensor::where('proses_id', $id_proses_from_url)->orderBy('tanggal', 'desc')->take(10)->get()->reverse()->values();
-        // $data = sensor::orderBy('tanggal', 'desc')->take(10)->get()->reverse()->values();
 
         return response()->json($data);
     }
